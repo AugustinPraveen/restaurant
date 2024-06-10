@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        / Cart Sidebar styles /
+        .cart-sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            right: 0;
+            background-color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+        }
+
+        .cart-sidebar .cart-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .cart-sidebar .close-cart {
+            font-size: 36px;
+            cursor: pointer;
+        }
+
+        .cart-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart-sidebar ul li {
+            padding: 8px 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-sidebar ul li img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .cart-sidebar p {
+            padding: 10px 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-warning" href="#" id="cartNav">Cart</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Menu Section -->
+<section id="menu" class="menu1 container my-4">
+    <div class="food">
+        <div class="row">
+            <!-- Menu Items -->
+            <div class="col my-2 cdcen">
+                <div class="card ml-4">
+                    <img src="images/pizza.jpeg" class="rounded card-img-top" alt="">
+                    <div class="card-body">
+                        <h3 class="card-title">Pizza</h3>
+                        <p class="card-text">149 Rs</p>
+                        <button class="btn btn-warning addcart">Add cart</button>
+                        <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Pizza" data-price="149 Rs" data-desc="Delicious cheesy pizza.">Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col my-2 cdcen">
+                <div class="card">
+                    <img src="images/burger.jpeg" class="rounded card-img-top" alt="">
+                    <div class="card-body">
+                        <h3 class="card-title">Burger</h3>
+                        <p class="card-text">129 Rs</p>
+                        <button class="btn btn-warning addcart">Add cart</button>
+                        <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Burger" data-price="129 Rs" data-desc="Juicy beef burger with lettuce.">Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat similar structure for other items -->
+            <div class="col my-2 cdcen">
+                <div class="card">
+                    <img src="images/sandwich.jpeg" class="rounded card-img-top" alt="">
+                    <div class="card-body">
+                        <h3 class="card-title">Sandwich</h3>
+                        <p class="card-text">99 Rs</p>
+                        <button class="btn btn-warning addcart">Add cart</button>
+                        <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Sandwich" data-price="99 Rs" data-desc="Fresh and tasty sandwich.">Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col my-2 cdcen">
+                <div class="card">
+                    <img src="images/noodles.jpeg" class="rounded card-img-top" alt="">
+                    <div class="card-body">
+                        <h3 class="card-title">Noodles</h3>
+                        <p class="card-text">129 Rs</p>
+                        <button class="btn btn-warning addcart">Add cart</button>
+                        <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Noodles" data-price="129 Rs" data-desc="Delicious noodles.">Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Add similar structure for remaining items... -->
+        </div>
+    </div>
+</section>
+
+<!-- Cart Sidebar -->
+<div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h2 class="bg-warning px-5">Cart</h2>
+        <span class="close-cart">&times;</span>
+    </div>
+    <ul id="cartItems"></ul>
+    <p>Total: <span id="totalAmount">0</span> Rs</p>
+</div>
+
+<!-- Details Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailsModalLabel">Food Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 id="modalItemName"></h5>
+                <p id="modalItemPrice"></p>
+                <p id="modalItemDesc"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const cartItems = [];
+    const addToCartButtons = document.querySelectorAll('.addcart');
+    const cartNav = document.getElementById('cartNav');
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartItemsList = document.getElementById('cartItems');
+    const totalAmount = document.getElementById('totalAmount');
+    const closeCart = document.querySelector('.close-cart');
+
+    // Modal elements
+    const detailsButtons = document.querySelectorAll('.details');
+    const modalItemName = document.getElementById('modalItemName');
+    const modalItemPrice = document.getElementById('modalItemPrice');
+    const modalItemDesc = document.getElementById('modalItemDesc');
+
+    detailsButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const itemName = this.getAttribute('data-name');
+            const itemPrice = this.getAttribute('data-price');
+            const itemDesc = this.getAttribute('data-desc');
+
+            modalItemName.textContent = itemName;
+            modalItemPrice.textContent = itemPrice;
+            modalItemDesc.textContent = itemDesc;
+        });
+    });
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const card = this.closest('.card');
+            const itemName = card.querySelector('.card-title').textContent.trim();
+            const itemPrice = parseInt(card.querySelector('.card-text').textContent.trim().split(' ')[0]);
+            const itemImgSrc = card.querySelector('img').src;
+
+            const existingItem = cartItems.find(cartItem => cartItem.name === itemName);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                const newItem = { name: itemName, price: itemPrice, imgSrc: itemImgSrc, quantity: 1 };
+                cartItems.push(newItem);
+            }
+
+            updateCart();
+            cartSidebar.style.width = '300px';
+        });
+    });
+
+    cartNav.addEventListener('click', function () {
+        cartSidebar.style.width = '300px';
+    });
+
+    closeCart.addEventListener('click', function () {
+        cartSidebar.style.width = '0';
+    });
+
+    function updateCart() {
+        cartItemsList.innerHTML = '';
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <img src="${item.imgSrc}" alt="${item.name}">
+                <span>${item.name} (x${item.quantity})</span>
+                <span>${item.price * item.quantity} Rs</span>
+            `;
+            cartItemsList.appendChild(li);
+            total += item.price * item.quantity;
+        });
+
+        totalAmount.textContent = total;
+    }
+});
+</script>
+</body>
+</html>
+
+$("#cards-bar").keyup(function(){
+    var value=$(this).val().toLowerCase();
+    $("#list div").each(function(){
+       var search=$(this).text().toLowerCase();
+       if(search.indexOf(value)>-1){
+          $(this).show();
+       }
+       else{
+          $(this).hide();
+       }
+    })
+ })
+
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

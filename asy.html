@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asy Foods</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <!-- navigation start -->
+    <nav class="navbar navbar-expand-md bg-dark">
+        <div class="container navbar  ">
+            <a href="" class="navbar-brand text-warning">ASY FOODS</a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar"
+                aria-controls="Navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span><img src="icons/list.svg" alt="" width="30px"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end " id="Navbar">
+
+                <ul class="navbar-nav ">
+                    <li class="nav-item"><a class="nav-link text-warning " href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning " href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning" href="#about">About us</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning" href="#contact">Contact </a></li>
+                    <li class="nav-item"><a class="nav-link text-warning" href="#signin" onclick="log()">Sign in</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-warning" href="#signup" onclick="up()">Sign up</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning" href="#cartSidebar" id="cartNav">Cart </a></li>
+                    
+                </ul>
+               
+            </div>
+        </div><br>
+    </nav>
+    <!-- navigation end -->
+
+    <!-- home start -->
+    <section id="home">
+        <div class="home container-fluid">
+            <img class="rounded-circle" src="images/download.jpeg" alt="" width="300px">
+            <div class=" asy">
+                <h1>Welcome to the <i>ASY FOODS </i></h1>
+                <h2>Don't wait</h2>
+                <h3><i>Let's Order Your Food now</i></h3>
+                <a class="btn  rounded" href="#menu">Order Now</a>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- home end -->
+
+    <!-- sign in start -->
+    <div class="container-fluid  " id="signin">
+        <form action="">
+            <h1 class="text-center">Sign in</h1>
+            <button class="btn btn-sm" id="close" onclick="clos()"><img src="icons/close.svg" id="close" alt=""
+                    width="30px"></button><br>
+            <!-- <label for="Name" class="mt-3" > Name</label>
+         <br>
+         <input type="text"   placeholder="Enter your name" > <br> -->
+            <label for="email" class="mt-2"> Email</label>
+            <br>
+            <input type="email" placeholder="Enter your email" id="emailadd"> <br>
+            <label for="password" class="mt-1"> Password</label>
+            <br>
+            <input type="password" placeholder="Enter your password" id="pwd">
+            <br>
+            <button type="button" onclick="getdata()" class="btn btn-warning m-4">Login</button>
+        </form>
+
+    </div>
+    <!-- sign in end -->
+
+    <!-- sign up start -->
+    <div class="container-fluid signup " id="signup">
+        <form action="" id="form" class="form need-validation" novalidate>
+            <h1>Sign up</h1>
+            <button class="btn btn-sm" id="close" onclick="down()"><img src="icons/close.svg" id="close" alt=""
+                    width="30px"></button><br>
+            <div class="row p-3">
+                <div class="col-sm-6 int-gr">
+                    <label for="firstname" class="mt-3"> First Name</label>
+                    <input type="text" id="firstname" class="form-control" placeholder="Enter First name" required>
+                    <div class="invalid-feedback m-3">Please Enter first name</div>
+                </div>
+                <div class="col-sm-6 int-gr">
+                    <label for="lastname" class="mt-3">Last Name</label>
+                    <input type="text" id="lastname" class="form-control" placeholder="Enter last Name" required>
+                    <div class="invalid-feedback m-3">Please Enter last name</div>
+                </div><br>
+                <div class="col-sm-6 mt-3 ">
+                    <p class="m-3">Gender</p>
+                    <input type="radio" id="genderMale" name="gender" value="Male" class="form-check-input ">
+                    <label for="genderMale">Male</label>
+                    <input type="radio" id="genderFemale" name="gender" value="Female" class="form-check-input ">
+                    <label for="genderFemale">Female</label>
+
+                    <div class="invalid-feedback m-3">Please select gender</div>
+
+                </div>
+                <div class="col-sm-6 mt-3 int-gr">
+                    <label for="">Nationality</label>
+                    <select class="form-control m-3" id="nation" name="nationality" required>
+                        <option value="" selected>Select Nationality</option>
+                        <option value="Afghastian">Afghastian</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="China">China</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Hawii">Hawii</option>
+                        <option value="India">India</option>
+                        <option value="Japan">Japan</option>
+
+                    </select>
+                    <div class="invalid-feedback m-3">please select nationality</div>
+
+                </div>
+                <div class="col-sm-6 ">
+                    <label for="Email" class="mt-3">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter Your Email" required>
+                    <div class="invalid-feedback m-3">please enter email</div>
+
+                </div>
+                <div class="col-sm-6 ">
+                    <label for="number" class="mt-3">Phone Number</label>
+                    <input type="text" id="phoneno" class="form-control" placeholder="Enter Your Phone Number" required>
+                    <div class="invalid-feedback m-3"> Please Enter phone number</div>
+                </div>
+                <div class="col-sm-6 ">
+                    <label for="password" class="mt-3">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter Your Password" required
+                        minlength="8">
+                    <div class="invalid-feedback m-3">Please Enter password</div>
+
+                </div>
+                <div class="col-sm-6 int-gr">
+                    <label for="password" class="mt-3">Confirm Password</label>
+                    <input type="password" id="cpassword" class="form-control" placeholder="Re Enter Password" required>
+                    <div class="invalid-feedback" id="confirm-password-feedback m-3">Please Enter confirm password</div>
+
+                </div>
+            </div>
+            <div class="col-12 d-grid gap-2">
+                <button type="submit" class="btn btn-warning m-5 " onclick="savedata()">Sign Up</button>
+            </div>
+            <!-- <button type="submit" class="btn btn-warning m-5 " onclick="reset()">reset</button> -->
+           
+         
+        </form>
+    </div>
+    <!-- sign up  end-->
+    <!-- menu start -->
+    <section id="menu" class="menu1 container my-4">
+        <div class="container p-2">
+            <form class="d-flex search" id="searchForm">
+                <input class="form-control me-2 p-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-warning "   type="submit">Search</button>
+              </form>
+        </div><br><br>
+        <div class="food container ">
+            <div class="row mt-2 ">
+                <div class="col my-2 cdcen" >
+                    <div class="card ml-4 "data-name="Pizza" >
+                        <img src="images/pizza.jpeg" class="rounded card-img-top" alt="">
+                        <div class="card-body">
+                            <h3 class="card-titile"> Pizza</h3>
+                            <p class="card-text">149 Rs</p>
+                            <button class="btn btn-warning addcart">Add cart</button>
+                            <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Pizza" data-price="Price 149 Rs" data-desc=" cheese, and many other ingredients, baked quickly—usually, in a commercial setting, using a wood-fired oven heated to a very high temperature—and served hot ..." data-img="images/pizza.jpeg">Details</button>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col my-2 cdcen" id="list">
+                    <div class="card " data-name="Burger" >
+                        <img src="images/burger.jpeg" class="rounded card-img-top" alt="">
+                        <div class="card-body">
+                            <h3 class="card-titile"> Burger</h3>
+                            <p class="card-text">129 Rs</p>
+                            <button class="btn btn-warning  addcart">Add cart</button>
+                            <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Burger" data-price="Price 129 Rs" data-desc="Crispy seasoned chicken breast, topped with mandatory melted cheese, piled onto soft rolls with onion, avocado, lettuce, tomato and garlic mayo." data-img="images/burger.jpeg">Details</button>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col my-2 cdcen " id="list">
+                    <div class="card " data-name="sandwich" >
+                        <img src="images/sandwich.jpeg" class="rounded card-img-top" alt="">
+                        <div class="card-body">
+                            <h3 class="card-titile"> Sandwich</h3>
+                            <p class="card-text">99 Rs</p>
+                            <button class="btn btn-warning  addcart">Add cart</button>
+                            <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Sandwich" data-price="Price 99 Rs" data-desc="A sandwich sliced cheese or meat, placed on or between slices of bread, or more generally any dish wherein bread serves ." data-img="images/sandwich.jpeg">Details</button>
+     
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col my-2 cdcen" >
+                    <div class="card " data-name="Noodles">
+                        <img src="images/noodles.jpeg" class="rounded" alt="">
+                        <div class="card-body">
+                            <h3 class="card-titile"> Noodles</h3>
+                            <p class="card-text">129 Rs</p>
+                            <button class="btn btn-warning  addcart">Add cart</button>
+                            <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Noodles" data-price="Price 129 Rs" data-desc="Delicious noodles. super quick to make delicious Chicken noodles made with just a handful of ingredients." data-img="images/noodles.jpeg">Details</button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col my-2 cdcen" id="list">
+                    <div class="card " data-name="frenchfries">
+                        <img src="images/frenchfries.jpeg" class="rounded" alt="">
+                        <div class="card-body">
+                            <h3 class="card-titile"> French Fries</h3>
+                            <p class="card-text">99 Rs</p>
+                            <button class="btn btn-warning  addcart">Add cart</button>
+                            <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" 
+                            data-name="french Fries" data-price="Price 99 Rs" data-desc="french fries, side dish or snack typically  Fries are often salted and served with other items, including ketchup, mayonnaise, or vinegar." data-img="images/frenchfries.jpeg">Details</button>
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col my-2 cdcen" id="list">
+                    <div class="card " data-name="friedrice">
+                        <img src="images/friedrice.jpeg" class="rounded" alt="">
+                        <div class="card-body">
+                            <h3 class="card-titile"> Fried Rice</h3>
+                            <p class="card-text">119 Rs</p>
+                            <button class="btn btn-warning  addcart">Add cart</button>
+                            <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Fried Rice" data-price="Price 129 Rs" data-desc="Juicy and spicy chicken fried rice.Chicken fried rice made in Indo Chinese style. Simple, easy to make & delicious fried rice made with tender chicken, soya sauce vinegar." data-img="images/friedrice.jpeg">Details</button>
+
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col my-2 cdcen" id="list">
+                    <div class="card " data-name="icecake">
+                        <img src="images/icecake.jpeg" class="rounded" alt="">
+                        <div class="card-body">
+                            <h3 class="card-titile">Ice Cake</h3>
+                            <p class="card-text">99 Rs</p>
+                            <button class="btn btn-warning  addcart">Add cart</button>
+                            <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Ice Cake" data-price="Price 99 Rs" data-desc="Ice cake is very Delicious An ice cream cake is a cake made entirely out of ice cream. A simpler no-bake version can be made by layering different flavors of ice cream in a loaf pan." data-img="images/icecake.jpeg">Details</button>
+
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col my-2 cdcen" >
+                    <div class="card " data-name="falooda">
+                        <img src="images/falooda.jpg" class="rounded" alt="">
+                        <div class="card-body">
+                            <h3 class="card-titile"> Falooda</h3>
+                            <p class="card-text">149 Rs</p>
+                            <button class="btn btn-warning  addcart">Add cart</button>
+                            <button class="btn btn-primary details" data-toggle="modal" data-target="#detailsModal" data-name="Falooda" data-price="Price 149 Rs" data-desc="All Fruits add in th flooda.Falooda is a popular Ice cream dessert made with vermicelli, jelly, rose syrup, sabja seeds, milk and ice cream. " data-img="images/falooda.jpg">Details</button>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade " id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered"  role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title text-danger" id="detailsModalLabel">FOOD DETAILS</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col modalimg">
+                           
+                        </div>
+                        <div class="col">
+                            <h5 id="modalItemName" class="bg-warning text-center"></h5>
+                            <p id="modalItemPrice" ></p>
+                            <p id="modalItemDesc"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- menu end -->
+
+   
+
+
+    <!-- about start -->
+    <section class="about" id="about">
+        <div class=" container  p-5">
+            <h1 class="text-warning my-3">About Us</h1>
+            <p class="m-5">Welcome to Asy Foods Where Every Meal Tells a StoryNestled in the heart of Chennai, Asy foods
+                is more than just a place to eat. it a culinary adventure, a haven for food lovers, and a dream
+                realized.Our journey began years ago with a simple yet profound passion for food. Growing up in a family
+                where the kitchen was the heart of the home, our founder, <i>Praveen</i>, spent countless hours watching
+                and learning from the culinary talents of parents and grandparents. The flavors, aromas, and techniques
+                of traditional family recipes were ingrained in <i>Praveen</i> from an early age.Inspired by these
+                cherished memories and a desire to share the magic of these family recipes with the world,
+                <i>Praveen</i> embarked on a journey to master the art of cooking. After years of traveling, learning,
+                and perfecting culinary skills at renowned institutions and under the guidance of world-class chefs,
+                <i>Praveen</i> returned home with a mission: to create a restaurant that celebrates the rich tapestry of
+                our culinary heritage while embracing innovative, modern techniques.</p>
+        </div>
+    </section>
+    <!-- about end -->
+
+    <!-- contact start -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h1 class="pt-3">Contact </h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="right m-5 ">
+                        <h3><img src="icons/envelope-fill.svg" alt="" width="30px">&nbsp; Email</h3>
+                        <p class="m-3 "><a href="" class="nav-link text-dark"><i>asyfoods29@gmail .com</i></a></p>
+                        <h3 class="mt-5"><img src="icons/telephone-fill.svg" alt="" width="30px">&nbsp;Phone</h3>
+                        <p class="m-2"><a href="" class="nav-link text-dark"><i>7573542212</i></a>
+                            <a href="" class="nav-link text-dark"><i>8765476542</i></a>
+                        </p>
+                        <h3 class="mt-4"><img src="icons/geo-alt-fill.svg" alt="" width="30px">&nbsp; Location</h3>
+                        <p class="m-3 p-2 lco">Asy Foods, VR Mall opposite <br> Anna Nagar , chennai-600018</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 c">
+                    <div class="left m-5">
+                        <h3 class="mt-5">Message</h3>
+                        <textarea class="mt-3" name="" id="" cols="25" rows="7"></textarea>
+                        <br>
+                        <button class="btn btn-dark bg-dark">Send</button>
+                    </div>
+                    <div class="container-fluid fit ">
+                        <img src="icons/facebook.svg" alt="">
+                        <img src="icons/instagram.svg" alt="">
+                        <img src="icons/twitter.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact end -->
+
+     <!-- cart start -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2 class="mx-5 mt-2">Cart</h2>
+            <span class="close-cart">&times;</span>
+        </div>
+        <ul id="cartItems"></ul>
+        <p>Total: <span id="totalAmount">0</span> Rs</p>
+        <button class="btn btn-warning text-center  mx-3" data-toggle="modal" data-target="#paymodal" >Pay</button>
+    </div>
+    
+    <!-- cart end -->
+
+    <!-- payment start -->
+
+        <div class="modal fade " id="paymodal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true" >
+            <div class="modal-dialog modal-dialog-centered"  role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                     <h2>Payment</h2>
+                       <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body ">
+                        <h4 class="text-center">Scan QR code</h4>
+                                <img src="images/download.png"  width="200px"  >
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    <!-- payment end -->
+
+  <script src="script.js"></script>
+</body>
+
+</html>
